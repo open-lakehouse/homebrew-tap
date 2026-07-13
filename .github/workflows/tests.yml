@@ -2,7 +2,8 @@ name: tests
 
 # Style + audit the tap's formulae. The formulae are generated (and already
 # style-checked) upstream, so this is a safety net that catches drift or a bad
-# push rather than the primary gate.
+# push rather than the primary gate. Runs on the PRs the bump-homebrew bot opens
+# (and any human PR), so actions are SHA-pinned and permissions are read-only.
 
 on:
   push:
@@ -10,14 +11,21 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions: {}
+# Read-only: this workflow only inspects formulae, it never writes to the repo.
+permissions:
+  contents: read
 
 jobs:
   test:
     runs-on: macos-latest
     steps:
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@18fcb8e3e06b4247c676c506750dc95ea7226479 # master
+
+      - name: Check out tap
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Tap this checkout
         run: brew tap open-lakehouse/tap "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
