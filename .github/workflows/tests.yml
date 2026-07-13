@@ -1,0 +1,29 @@
+name: tests
+
+# Style + audit the tap's formulae. The formulae are generated (and already
+# style-checked) upstream, so this is a safety net that catches drift or a bad
+# push rather than the primary gate.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap this checkout
+        run: brew tap open-lakehouse/tap "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+
+      - name: brew style
+        run: brew style open-lakehouse/tap
+
+      - name: brew audit
+        run: brew audit --strict --tap open-lakehouse/tap
