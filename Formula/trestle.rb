@@ -19,23 +19,23 @@ class Trestle < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.6/trestle-aarch64-apple-darwin.tar.gz"
-      sha256 "1042cb8300d7d44f4a8f4775b20f9a9c60e33afd0f9a3b68f8d65ab6db28ce0c"
+      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.7/trestle-aarch64-apple-darwin.tar.gz"
+      sha256 "918d9f9f88d6c3cce0515c584ddb91d4a09b676452bff39b4d985406a75fd8d2"
     end
     on_intel do
-      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.6/trestle-x86_64-apple-darwin.tar.gz"
-      sha256 "c89a5b083a959f39203d1308f9d9b9049ecc052e20c64413ad1af55d06db7ab8"
+      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.7/trestle-x86_64-apple-darwin.tar.gz"
+      sha256 "c6ed30ef469f973b21ba24b1d14170cef74ded22e82ece02f76cad27fcfe1db7"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.6/trestle-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "8bde14c0e904278ff4d9ccdb2ab6f1e6e16605cfa1a564da7e119a145ef2c46a"
+      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.7/trestle-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "a0b484e99c09de455dd39ee207be207c98832ba2c6cad5d1542ce4e5cb239665"
     end
     on_intel do
-      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.6/trestle-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "05f8be32c01325d93b7fd0093c93d94e73f087af555d0b7e599787bea62806f7"
+      url "https://github.com/open-lakehouse/trestle/releases/download/olai-trestle-v0.0.7/trestle-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "0a4445bd262b313a0ad8000d269a3a148651d3f69588864d298ea1f8b5b514c9"
     end
   end
 
